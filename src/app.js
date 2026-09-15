@@ -1,9 +1,13 @@
 const express = require("express");
 
 const app = express();
+const logger = require("./middelware/logger")
+const useRoute = require("./routes/user.route")
+
 
 // Missleware
 app.use(express.json());
+app.use(logger)
 
 // Routes
 app.get("/", (req, res) => {

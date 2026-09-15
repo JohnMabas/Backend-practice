@@ -10,25 +10,27 @@ app.use(express.json());
 app.use(logger)
 
 // Routes
-app.get("/", (req, res) => {
+app.post("/", (req, res) => {
     res.json({
         "status": "success",
         "message": "Welcome to Home"
     });
 });
 
-app.get("/about", (req, res) => {
-    res.json({
-        "status": "success",
-        "message": "Welcome to about"
-    });
-});
+// app.get("/about", (req, res) => {
+//     res.json({
+//         "status": "success",
+//         "message": "Welcome to about"
+//     });
+// });
 
-app.get("/contact", (req, res) => {
-    res.json({
-        "status": "success",
-        "message": "Welcome to Contact"
-    });
-});
+// app.get("/contact", (req, res) => {
+//     res.json({
+//         "status": "success",
+//         "message": "Welcome to Contact"
+//     });
+// });
+
+app.use("/user", logger, useRoute)
 
 module.exports = app;

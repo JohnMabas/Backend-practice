@@ -1,8 +1,9 @@
 const register = (req, res, next) => {
-   req.body = {name: req.body.name, password: req.body.password};
+//    req.body = {name: req.body.name, password: req.body.password};
+   const  {name, password} = req.body
 
-   if(name == null || password == null) {
-        return res.status(204).json({
+   if(name.length < 1 || password.length < 1) {
+        return res.status(400).json({
         "status": "error",
         "message": "Name and password are required"
         }) 
@@ -30,4 +31,4 @@ const register = (req, res, next) => {
   next();
 };
 
-module.exports = register;
+module.exports = {register};
